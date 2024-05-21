@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: frontend-wtsapp
-        image: sathish8329/proengage:32
+        image: sathish8329/whatsappfront:01
         ports:
         - containerPort: 3000
         readinessProbe:  # Add readiness probe
