@@ -55,19 +55,63 @@ spec:
             name: lowcode-frontend-service-wtsapp
             port:
               number: 80
-      - path: /api
+  - host: "thulasipharmacy.kovaion.ai"
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: lowcode-api-service-wtsapp
+            name: lowcode-frontend-service-wtsapp
             port:
-              number: 8000
-      - path: /auth
+              number: 80
+  - host: "varahi.kovaion.ai"
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: lowcode-auth-service-wtspp
+            name: lowcode-frontend-service-wtsapp
             port:
-              number: 8080
-
-
+              number: 80
+  - host: "varahii.kovaion.ai"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-frontend-service-wtsapp
+            port:
+              number: 80
+  - host: "signature18clinic.kovaion.ai"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-frontend-service-wtsapp
+            port:
+              number: 80
+  - host: "rmiller.kovaion.ai"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-frontend-service-wtsapp
+            port:
+              number: 80
+  - host: "naveenexports.kovaion.ai"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-frontend-service-wtsapp
+            port:
+              number: 80
