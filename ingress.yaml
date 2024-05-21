@@ -30,7 +30,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: lowcode-auth-service-wtspp
+            name: lowcode-auth-service-wtsapp
             port:
               number: 8080
 
@@ -55,5 +55,19 @@ spec:
             name: lowcode-frontend-service-wtsapp
             port:
               number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-api-service-wtsapp
+            port:
+              number: 8000
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: lowcode-auth-service-wtspp
+            port:
+              number: 8080
 
 
