@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment-wtsapp
+  namespace: lowcode-wtsapp # Specify the namespace here
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: frontend-wtsapp
+  template:
+    metadata:
+      labels:
+        app: frontend-wtsapp
+    spec:
+      containers:
+      - name: frontend-wtsapp
+        image: sathish8329/proengage:32
+        ports:
+        - containerPort: 3000
+        readinessProbe:  # Add readiness probe
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3  # Set failure threshold to 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lowcode-frontend-service-wtsapp
+  namespace: lowcode-wtsapp  # Specify the namespace here
+spec:
+  selector:
+    app: frontend-wtsapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
+      
